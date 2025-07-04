@@ -79,9 +79,9 @@ int setRtuParam(void *backend, char c, char *value) {
     switch (c) {
     case 'b': {
         rtuParams->baud = getInt(value, &ok);
-        if (0 != ok) {
+        if (!ok) {
             printf("Baudrate is invalid %s", value);
-            ok = 0;
+            ok = 1;
         }
     }
         break;
